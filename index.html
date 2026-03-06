@@ -131,7 +131,7 @@
     /* --- Current account display --- */
     .account-card {
       text-align: center;
-      margin: 20px 0 16px;
+      margin: 20px 0 8px;
       padding: 16px 18px;
       border-radius: 14px;
       background: radial-gradient(circle at top, #eff6ff 0, #ffffff 55%);
@@ -143,6 +143,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+
+    /* --- Explanation box --- */
+    #explainBox {
+      margin-top: 6px;
+      font-size: 13px;
     }
 
     /* --- Feedback area (correct / incorrect) --- */
@@ -441,6 +447,11 @@
 
       <!-- Current account name -->
       <div class="account-card" id="accountName"></div>
+      <!-- Explanation button + box -->
+      <button id="explainBtn" class="secondary" type="button" style="margin-top:4px;">
+        Show explanation
+      </button>
+      <div id="explainBox" class="feedback" style="display:none;"></div>
 
       <!-- Classification controls -->
       <div class="flex">
@@ -491,7 +502,6 @@
       <div class="modal">
         <div class="modal-header">
           <h2>Session Summary - Account Classification</h2>
-          <!-- Close button: triggers confirm (restart or end) -->
           <button id="closeReportBtn" class="secondary" style="min-width:auto;padding:4px 10px;font-size:12px;">Close</button>
         </div>
         <div class="modal-subtitle" id="reportSummary"></div>
@@ -502,11 +512,10 @@
       </div>
     </div>
 
-    <!-- Chart of accounts data (from Excel) -->
+    <!-- Data + logic -->
     <script src="chartOfAccounts.obf.js"></script>
-
-    <!-- App logic -->
     <script src="app.obf.js"></script>
+    <script src="login.obf.js"></script>
   </div>
 </body>
 </html>
