@@ -75,7 +75,7 @@ const chartOfAccounts = [
     description: "Consumable items such as office or factory supplies on hand for future use."
   },
   {
-    name: "Prepaid Expense",
+    name: "Prepaid Expenses",
     normal_balance: "Debit",
     type: "Asset",
     contra: false,
@@ -147,14 +147,46 @@ const chartOfAccounts = [
     description: "Cost of machinery, tools, and other equipment used in operations."
   },
   {
-    name: "Intangible Asset",
+    name: "Intangibles",
     normal_balance: "Debit",
     type: "Asset",
     contra: false,
     level: "basic",
     description: "Non-physical assets such as patents, trademarks, licenses, and similar rights."
   },
-
+  {
+    name: "Patents",
+    normal_balance: "Debit",
+    type: "Asset",
+    contra: false,
+    level: "extended",
+    description: "Exclusive legal rights to produce or use an invention."
+  },
+  {
+    name: "Copyrights",
+    normal_balance: "Debit",
+    type: "Asset",
+    contra: false,
+    level: "extended",
+    description: "Rights granted to authors or creators over their literary or artistic works."
+  },
+  {
+    name: "Trademarks",
+    normal_balance: "Debit",
+    type: "Asset",
+    contra: false,
+    level: "extended",
+    description: "Registered names, logos, or symbols used to identify the entity’s goods or services."
+  },
+  {
+    name: "Goodwill",
+    normal_balance: "Debit",
+    type: "Asset",
+    contra: false,
+    level: "extended",
+    description: "Excess of purchase consideration over the fair value of identifiable net assets acquired in a business combination."
+  },
+ 
   // Basic – Liability
   {
     name: "Accounts Payable",
@@ -237,7 +269,7 @@ const chartOfAccounts = [
     description: "Interest-bearing loans or credit facilities obtained from banks or other lenders."
   },
   {
-    name: "Long-term Debts",
+    name: "Long-term Debt",
     normal_balance: "Credit",
     type: "Liability",
     contra: false,
@@ -395,7 +427,7 @@ const chartOfAccounts = [
     description: "Transportation, accommodation, and related costs of business travel."
   },
   {
-    name: "Depreciation",
+    name: "Depreciation Expense",
     normal_balance: "Debit",
     type: "Expense",
     contra: false,
@@ -435,14 +467,6 @@ const chartOfAccounts = [
     description: "Cost of borrowing funds, including interest on loans and bonds."
   },
   {
-    name: "Loss on Sale of Property",
-    normal_balance: "Debit",
-    type: "Expense",
-    contra: false,
-    level: "basic",
-    description: "Excess of carrying amount over proceeds from disposing of property."
-  },
-  {
     name: "Income Tax Expense",
     normal_balance: "Debit",
     type: "Expense",
@@ -450,16 +474,33 @@ const chartOfAccounts = [
     level: "basic",
     description: "Income taxes recognized in profit or loss for the period."
   },
+  {
+    name: "Loss on Sale of Property",
+    normal_balance: "Debit",
+    type: "Expense",
+    contra: false,
+    level: "basic",
+    description: "Excess of carrying amount over proceeds from disposing of property."
+  },
 
   // Basic – Other
   {
     name: "Dividends",
     type: "Other",
-    subtype: "Dividend",  // ← ADD THIS LINE
+    subtype: "Dividend", 
     normal_balance: "Debit",
     contra: false,
     level: "basic",
     description: "Distributions of profit to shareholders; reduces retained earnings but is not an expense."
+  },
+  {
+    name: "Income Summary",
+    type: "Other",
+    subtype: "Income-Summary",  
+    normal_balance: "Credit",
+    contra: false,
+    level: "basic",
+    description: "Temporary account used in the closing process to summarize revenues and expenses."
   },
 
   // Extended – Asset
@@ -480,7 +521,7 @@ const chartOfAccounts = [
     description: "Small cash fund used to pay minor expenses."
   },
   {
-  name: "Credityptocurrency",
+  name: "Cryptocurrency",
   normal_balance: "Debit",
   type: "Asset",
   contra: false,
@@ -488,7 +529,7 @@ const chartOfAccounts = [
   description: "Digital tokens such as Bitcoin or Ether held by the entity as an asset (usually treated as an intangible asset or, for broker‑traders, as inventory under IFRS)."
   },
   {
-    name: "Financial Asset",
+    name: "Financial Assets",
     normal_balance: "Debit",
     type: "Asset",
     contra: false,
@@ -496,7 +537,7 @@ const chartOfAccounts = [
     description: "Debt or equity instruments recognized as financial assets under IFRS."
   },
   {
-    name: "Loss Allowance on Financial Asset",
+    name: "Loss Allowance on Financial Assets",
     normal_balance: "Credit",
     type: "Asset",
     contra: true,
@@ -551,39 +592,7 @@ const chartOfAccounts = [
     level: "extended",
     description: "Right to consideration in exchange for goods or services transferred to a customer."
   },
-  {
-    name: "Patents",
-    normal_balance: "Debit",
-    type: "Asset",
-    contra: false,
-    level: "extended",
-    description: "Exclusive legal rights to produce or use an invention."
-  },
-  {
-    name: "Copyrights",
-    normal_balance: "Debit",
-    type: "Asset",
-    contra: false,
-    level: "extended",
-    description: "Rights granted to authors or creators over their literary or artistic works."
-  },
-  {
-    name: "Trademarks",
-    normal_balance: "Debit",
-    type: "Asset",
-    contra: false,
-    level: "extended",
-    description: "Registered names, logos, or symbols used to identify the entity’s goods or services."
-  },
-  {
-    name: "Goodwill",
-    normal_balance: "Debit",
-    type: "Asset",
-    contra: false,
-    level: "extended",
-    description: "Excess of purchase consideration over the fair value of identifiable net assets acquired in a business combination."
-  },
-  {
+ {
     name: "Deferred Tax Asset",
     normal_balance: "Debit",
     type: "Asset",
@@ -592,7 +601,7 @@ const chartOfAccounts = [
     description: "Income taxes recoverable in future periods due to deductible temporary differences or tax loss carryforwards."
   },
   {
-    name: "Plan Asset (Pension)",
+    name: "Plan Assets (Pension)",
     normal_balance: "Debit",
     type: "Asset",
     contra: false,
@@ -674,7 +683,7 @@ const chartOfAccounts = [
     description: "Provision recognized for expected warranty costs."
   },
   {
-    name: "Refund liability",
+    name: "Refund Liability",
     normal_balance: "Credit",
     type: "Liability",
     contra: false,
@@ -884,7 +893,7 @@ const chartOfAccounts = [
   {
     name: "Other Comprehensive Income (Gain)",
     type: "Other",
-    subtype: "OCI",  // ← ADD THIS LINE
+    subtype: "OCI",  
     normal_balance: "Credit",
     contra: false,
     level: "extended",
@@ -893,21 +902,13 @@ const chartOfAccounts = [
   {
     name: "Other Comprehensive Income (Loss)",
     type: "Other",
-    subtype: "OCI",  // ← ADD THIS LINE
+    subtype: "OCI", 
     normal_balance: "Debit",
     contra: false,
     level: "extended",
     description: "Unrealized fair value losses on FVOCI financial assets recognized in other comprehensive income."
   },
-  {
-    name: "Income Summary",
-    type: "Other",
-    subtype: "Income-Summary",  // ← ADD THIS LINE
-    normal_balance: "Credit",
-    contra: false,
-    level: "extended",
-    description: "Temporary account used in the closing process to summarize revenues and expenses."
-  }
+
 ];
 
 // Note: "Other" includes other comprehensive income items, dividends,
