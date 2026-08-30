@@ -56,6 +56,22 @@
       font-size: clamp(1rem, 2.5vw, 1.35rem);
     }
 
+    .student-name-display {
+      margin: 0;
+      color: var(--muted);
+      font-size: .92rem;
+      font-weight: 600;
+      text-align: right;
+    }
+
+    .score-block {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+      margin-left: auto;
+    }
+
     .view { padding: 0 0 28px; }
     .hidden { display: none !important; }
 
@@ -168,7 +184,6 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-left: auto;
   padding-bottom: 8px;
   color: var(--muted);
   white-space: nowrap;
@@ -381,7 +396,9 @@
       .container { width: min(100% - 24px, 900px); }
       .header { padding-top: 24px; }
       .controls { align-items: flex-start; flex-wrap: wrap; margin-bottom: 26px; }
-      .score-inline { width: 100%; margin-left: 0; padding: 0; }
+      .score-block { width: 100%; align-items: flex-start; margin-left: 0; }
+      .student-name-display { text-align: left; }
+      .score-inline { padding: 0; }
       .account-heading { justify-content: space-between; border-radius: 20px; }
       .account-name { text-align: left; }
       .action-buttons .btn { flex: 1 1 auto; }
@@ -421,9 +438,12 @@
               </select>
             </div>
           
-            <div class="score-inline" aria-live="polite">
-              <span>Score: <strong id="score">0.0</strong></span>
-              <span>/ <strong id="total">0</strong> questions</span>
+            <div class="score-block">
+              <p id="studentNameDisplay" class="student-name-display hidden"></p>
+              <div class="score-inline" aria-live="polite">
+                <span>Score: <strong id="score">0.0</strong></span>
+                <span>/ <strong id="total">0</strong> questions</span>
+              </div>
             </div>
           </div>
 

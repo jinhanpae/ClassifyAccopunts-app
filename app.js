@@ -24,6 +24,7 @@ const sessionDetails = [];
 
 const appView = document.getElementById("appView");
 const loginView = document.getElementById("loginView");
+const studentNameDisplay = document.getElementById("studentNameDisplay");
 const difficultySelect = document.getElementById("difficultySelect");
 const accountNameEl = document.getElementById("accountName");
 const typeButtonsWrap = document.getElementById("typeButtons");
@@ -470,7 +471,7 @@ function showReport() {
   let html = "<div class=\"report-meta\">";
   html +=
     "<p><strong>Name:</strong> " +
-    escapeHtml(studentName || "(not provided)") +
+    escapeHtml(studentName || "Anonymous") +
     "</p>";
   html +=
     "<p><strong>Questions:</strong> " +
@@ -654,6 +655,9 @@ window.startApp = function(name, ip) {
   studentName = name;
   studentIp = ip;
   sessionStart = new Date();
+
+  studentNameDisplay.textContent = "Signed in as: " + (studentName || "Anonymous");
+  studentNameDisplay.classList.remove("hidden");
 
   loginView.classList.add("hidden");
   appView.classList.remove("hidden");
