@@ -46,6 +46,11 @@ const explanationBackdrop = document.getElementById("explanationBackdrop");
 const explanationContent = document.getElementById("explanationContent");
 const closeExplanationBtn = document.getElementById("closeExplanationBtn");
 
+const typeInfoBtn = document.getElementById("typeInfoBtn");
+const typeInfoBackdrop = document.getElementById("typeInfoBackdrop");
+const typeInfoContent = document.getElementById("typeInfoContent");
+const closeTypeInfoBtn = document.getElementById("closeTypeInfoBtn");
+
 let selectedType = "";
 let selectedBalance = "";
 let remainingAccounts = [];
@@ -549,6 +554,24 @@ function closeExplanation() {
 
 
 ///////////////////////////////////////////////////////////////////////////////
+// Account type info modal
+///////////////////////////////////////////////////////////////////////////////
+
+function showTypeInfo() {
+  typeInfoContent.innerHTML =
+    "<p><strong>Assets, Liabilities, and Equity</strong> are permanent accounts reported in the statement of financial position.</p>" +
+    "<p><strong>Revenues and Expenses</strong> are temporary accounts included in profit or loss (P/L).</p>" +
+    "<p><strong>Other Items</strong> don't belong in Assets, Liabilities, Equity, Revenues, or Expenses \u2014 this can include distributions to owners, OCI items, and accounts used in the closing process.</p>";
+
+  typeInfoBackdrop.classList.add("show");
+}
+
+function closeTypeInfo() {
+  typeInfoBackdrop.classList.remove("show");
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
 // Event listeners
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -596,6 +619,10 @@ explainBtnSmall.addEventListener("click", showExplanation);
 
 closeExplanationBtn.addEventListener("click", closeExplanation);
 
+typeInfoBtn.addEventListener("click", showTypeInfo);
+
+closeTypeInfoBtn.addEventListener("click", closeTypeInfo);
+
 reportBackdrop.addEventListener("click", event => {
   if (event.target === reportBackdrop) {
     closeReport();
@@ -605,6 +632,12 @@ reportBackdrop.addEventListener("click", event => {
 explanationBackdrop.addEventListener("click", event => {
   if (event.target === explanationBackdrop) {
     closeExplanation();
+  }
+});
+
+typeInfoBackdrop.addEventListener("click", event => {
+  if (event.target === typeInfoBackdrop) {
+    closeTypeInfo();
   }
 });
 

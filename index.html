@@ -207,11 +207,35 @@
     }
 
     .section-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
       margin: 22px 0 12px;
       color: var(--muted);
       font-size: 1.15rem;
       font-weight: 700;
       text-align: left;
+    }
+
+    .btn-icon-info {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      padding: 0;
+      border: none;
+      border-radius: 50%;
+      background: none;
+      color: var(--blue);
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .btn-icon-info:hover {
+      background: #eff6ff;
     }
 
     .segmented-buttons {
@@ -409,7 +433,10 @@
           <button id="explainBtnSmall" class="btn btn-small btn-info" type="button" disabled>Explain</button>
         </div>
 
-        <div class="section-label">Account type</div>
+        <div class="section-label">
+          Account type
+          <button id="typeInfoBtn" class="btn-icon-info" type="button" aria-label="About account types" aria-haspopup="dialog">ⓘ</button>
+        </div>
         <div class="segmented-buttons" id="typeButtons">
           <button class="segmented-button" data-type="Asset" type="button">Assets</button>
           <button class="segmented-button" data-type="Liability" type="button">Liabilities</button>
@@ -452,6 +479,16 @@
       <div class="modal-actions">
         <button id="continueSessionBtn" class="btn" type="button">Continue</button>
         <button id="startNewSessionBtn" class="btn btn-primary" type="button">Start new session</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="typeInfoBackdrop" class="explanation-backdrop" role="dialog" aria-modal="true" aria-labelledby="typeInfoTitle">
+    <div class="explanation-dialog">
+      <h2 id="typeInfoTitle">About account types</h2>
+      <div id="typeInfoContent"></div>
+      <div class="modal-actions">
+        <button id="closeTypeInfoBtn" class="btn" type="button">Close</button>
       </div>
     </div>
   </div>

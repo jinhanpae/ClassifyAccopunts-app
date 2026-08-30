@@ -21,6 +21,7 @@ After using this app, students should be able to:
 - First-attempt scoring of 1.0 point and second-attempt scoring of 0.5 point.
 - One additional attempt after an incorrect first answer.
 - Optional explanation available after the student submits a first attempt.
+- An info button next to "Account type" explaining the classification categories: permanent accounts (Assets, Liabilities, Equity) vs. temporary accounts (Revenues, Expenses), and what "Other Items" covers.
 - Session report with:
   - Student name
   - Data set used
@@ -66,7 +67,8 @@ Contra status is modeled as a separate Boolean flag (`contra: true`), not as a s
 ├── app.js
 ├── chartOfAccounts.js
 ├── login.js
-└── README.md
+├── README.md
+└── accounts.html        (backup copy of index.html; not part of the deployed app)
 ```
 
 | File | Purpose |
@@ -76,6 +78,7 @@ Contra status is modeled as a separate Boolean flag (`contra: true`), not as a s
 | `chartOfAccounts.js` | Account master data and classifications |
 | `login.js` | Name/password entry and app startup |
 | `README.md` | Project overview and maintenance guide |
+| `accounts.html` | Backup/reference copy of `index.html`; not deployed, not loaded by any script |
 
 ## Local use
 
@@ -146,6 +149,7 @@ Stop the server with `Control + C` in Terminal.
 - [ ] Dividends, OCI items, and Income Summary appear as Other Items and show their subtype in the report when applicable.
 - [ ] The explanation button is unavailable before the first submitted attempt and available afterwards.
 - [ ] The explanation opens in its own dialog and can be closed.
+- [ ] The info button next to "Account type" opens its own dialog with the current wording and can be closed independently of the explanation dialog.
 - [ ] Report shows the student name, data set, question count, score, completion time, and IP field if available.
 - [ ] Report offers Continue and Start new session.
 - [ ] Continue preserves the active score and remaining accounts.
@@ -183,6 +187,12 @@ For an Other Items account, add `subtype` and, where helpful, `pedagogicalNote`:
   pedagogicalNote: "Dividends are distributions to owners, not expenses."
 }
 ```
+
+### Edit the account-type info text
+
+The wording shown by the "ⓘ" button next to "Account type" is not stored in `chartOfAccounts.js`. It is a static string inside `showTypeInfo()` in `app.js`. To update it, edit the `typeInfoContent.innerHTML` assignment directly.
+
+Keep this wording non-revealing: it should describe the *categories* (e.g., permanent vs. temporary accounts, or what "Other Items" broadly covers) without naming specific account examples that appear in the quiz data — especially accounts like Income Summary, where naming it directly would give away the answer.
 
 ### Keep these values consistent
 
