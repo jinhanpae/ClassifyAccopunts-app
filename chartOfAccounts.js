@@ -147,7 +147,7 @@ const chartOfAccounts = [
     description: "Cost of machinery, tools, and other equipment used in operations."
   },
   {
-    name: "Intangible Asset",
+    name: "Intangibles",
     normal_balance: "Debit",
     type: "Asset",
     contra: false,
